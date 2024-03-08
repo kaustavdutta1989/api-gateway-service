@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: service-api-gateway
+
+  cloud:
+    gateway:
+      routes:
+
+        - id: user-api-service
+          uri: lb://USER-API-SERVICE
+          predicates:
+            - Path=/user/api/v1/**
+
+        - id: theatre-api-service
+          uri: lb://THEATRE-API-SERVICE
+          predicates:
+            - Path=/theatre/api/v1/**
+
+        - id: movie-api-service
+          uri: lb://MOVIE-API-SERVICE
+          predicates:
+            - Path=/movie/api/v1/**
+
+        - id: setup-api-service
+          uri: lb://SETUP-API-SERVICE
+          predicates:
+            - Path=/setup/api/v1/**
+
+        - id: ticket-api-service
+          uri: lb://TICKET-API-SERVICE
+          predicates:
+            - Path=/ticket/api/v1/**
+
+        - id: transaction-api-service
+          uri: lb://TRANSACTION-API-SERVICE
+          predicates:
+            - Path=/transaction/api/v1/**
+
+        - id: discount-api-service
+          uri: lb://DISCOUNT-API-SERVICE
+          predicates:
+            - Path=/discount/api/v1/**
+
+        - id: allotment-api-service
+          uri: lb://ALLOTMENT-API-SERVICE
+          predicates:
+            - Path=/allotment/api/v1/**
+
+        - id: ticket-api-service
+          uri: lb://TICKET-API-SERVICE
+          predicates:
+            - Path=/ticket/api/v1/**
+
+  main:
+    web-application-type: reactive
+server:
+  port: 8700
